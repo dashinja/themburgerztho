@@ -1,9 +1,9 @@
 <h3>Delicacies Remaining</h3>
 <ul>
-  {{#each Burger}}
-  {{#unless devoured}}
-  {{>burgers/burger-block devoured=false}}
-  {{/unless}}
+  {{#each burger}}
+    {{#unless devoured}}
+      {{>burgers/burger-block devoured=false}}
+    {{/unless}}
   {{/each}}
 </ul>
 
@@ -11,8 +11,26 @@
 
 <ul>
   {{#each}}
-  {{#if devoured}}
-  {{>burgers/burger-block devoured=true}}
-  {{/if}}
+    {{#if devoured}}
+      {{>burgers/burger-block devoured=true}}
+    {{/if}}
   {{/each}}
 </ul>
+
+<h2>Add a Delicacy</h2>
+<form action="/api/burger" method="POST" class="create-form">
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="burger" name="burgerName">
+  </div>
+
+  <div class="form-group">
+    <label for="devoured">Devoured?</label><br>
+    <input type="radio" name="devouredState" value="0"><input type="radio" name="devouredState"
+      value="1" checked>Scrumptiously Available<br>
+    <input type="radio" name="devouredState" value="1"><input type="radio" name="devouredState"
+      value="1">Tantalizingly Unavailable<br>
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
