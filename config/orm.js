@@ -46,13 +46,18 @@ const orm = {
     });
     console.log("I'm Select ALL query:", query.sql);
   },
-  insert: (table, col, val, cb) => {
-    let myQuery = 'INSERT INTO ? ?? ?';
-    let options = [table, col.toString(), val];
-    let query = connection.query(myQuery, options, (err, result) => {
-      if (err) throw err;
+  insert: (table, val, val2, cb) => {
+    // let myQuery = 'INSERT INTO ?? SET (??) VALUES (?)';
+    // let myQuery = 'INSERT INTO ?? SET (??,??) VALUES (?,?)';
+    let newQuery = 'INSERT INTO ' + table + ' SET ?'
+    // let options = [table, col.toString(), val.toString()];
+    let newOptions = {burger_name: val.toString(), devoured: val2.toString()}
+    let query = connection.query(newQuery, newOptions, (err, result) => {
+      // if (err) throw err;
+      console.log("I'm the orm.insert err: ", err);
       cb(err, result);
     });
+    // query();
     console.log(query.sql);
   },
   update: (table, col, conditionEquals, cb) => {

@@ -14,22 +14,23 @@ router.get('/', (req, res) => {
       burger: result
     };
     console.log("Hi, I'm visible object: ", visibleObject);
-    res.render('index', visibleObject.burger);
+    res.render('index', visibleObject);
   });
 });
 
 router.post('/api/burger', (req, res) => {
   burger.insert(
-    ['burger_name', 'devoured'],
-    [req.body.burgerName, req.body.devouredState],
+    req.body.burgerName, req.body.devouredState,
     (err, result) => {
-      if (err) throw err;
-
-      res.json({ id: result.insertId });
+      // if (err) throw err;
+      console.log(err);
+      res.render("api", {id: result})
+      // res.json({ id: result.insertId });
+      // res.redirect('/');
+    
     }
   );
 
-  res.redirect('/');
 });
 
 // router.put('/api/burger/:id', (req, res));

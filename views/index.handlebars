@@ -1,8 +1,15 @@
+<h1>Here's the Burgers</h1>
+<h2>Eat d'Burgers</h2>
+<h3>Burger iz Life</h3>
+<h4>Can haz cheezeburger?</h4>
+<h5>Not an app about kats!</h5>
+<h6>mmm... cat buuuurrrggeerr</h6>
+
 <h3>Delicacies Remaining</h3>
 <ul>
   {{#each burger}}
     {{#unless devoured}}
-      {{>burgers/burger-block devoured=false}}
+      {{> burgers/burger-block devoured=false}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -10,9 +17,9 @@
 <h3>Delicacies to be Ravaged No More...</h3>
 
 <ul>
-  {{#each}}
+  {{#each burger}}
     {{#if devoured}}
-      {{>burgers/burger-block devoured=true}}
+      {{> burgers/burger-block devoured=true}}
     {{/if}}
   {{/each}}
 </ul>
@@ -26,10 +33,12 @@
 
   <div class="form-group">
     <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devouredState" value="0"><input type="radio" name="devouredState"
-      value="1" checked>Scrumptiously Available<br>
-    <input type="radio" name="devouredState" value="1"><input type="radio" name="devouredState"
-      value="1">Tantalizingly Unavailable<br>
+
+    <input type="radio" name="devouredState" value="0" checked>Scrumptiously
+    Available<br>
+
+    <input type="radio" name="devouredState" value="1">Tantalizingly
+    Unavailable<br>
   </div>
 
   <button type="submit">Add Burger</button>
