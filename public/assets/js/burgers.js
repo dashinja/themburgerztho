@@ -14,6 +14,7 @@ $(() => {
       console.log('changed devour to: ', newState);
 
       location.reload();
+      
     });
   });
 });

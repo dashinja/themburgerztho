@@ -19,18 +19,13 @@ router.get('/', (req, res) => {
 });
 
 router.post('/api/burger', (req, res) => {
-  burger.insert(
-    req.body.burgerName, req.body.devouredState,
-    (err, result) => {
-      // if (err) throw err;
-      console.log(err);
-      res.render("api", {id: result})
-      // res.json({ id: result.insertId });
-      // res.redirect('/');
-    
-    }
-  );
-
+  burger.insert(req.body.burgerName, req.body.devouredState, (err, result) => {
+    // if (err) throw err;
+    console.log(err);
+    res.render('api', result);
+    // res.json({ id: result.insertId });
+    // res.redirect('/');
+  });
 });
 
 // router.put('/api/burger/:id', (req, res));
