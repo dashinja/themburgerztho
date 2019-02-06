@@ -5,12 +5,16 @@ const burger = require('../model/burger');
 //routes eh?
 
 router.get('/', (req, res) => {
-  burger.all(result => {
-    const visibleObject = {
+  burger.all(function(err, result) {
+    console.log("Hi, I'm top level get route result: ", result);
+    if (err) {
+      console.log(err);
+    }
+    let visibleObject = {
       burger: result
     };
     console.log("Hi, I'm visible object: ", visibleObject);
-    res.render('index', visibleObject);
+    res.render('index', visibleObject.burger);
   });
 });
 
@@ -28,5 +32,5 @@ router.post('/api/burger', (req, res) => {
   res.redirect('/');
 });
 
-router.put('/api/burger/:id', (req, res));
+// router.put('/api/burger/:id', (req, res));
 module.exports = router;

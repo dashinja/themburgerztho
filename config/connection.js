@@ -1,5 +1,5 @@
-const mysql = require('mysql')
-require('dotenv').config()
+const mysql = require('mysql');
+require('dotenv').config();
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -7,11 +7,13 @@ const connection = mysql.createConnection({
   user: process.env.SQL_USER,
   password: process.env.SQL_PW,
   database: 'burgers_db'
-})
+  // stringifyObjects: true
+});
 
-connection.connect((err) => {
-  if (err) throw err;
-  console.log(`DB connected as user_id: ${connection.threadId}`)
-})
+connection.connect(err => {
+  // if (err) throw err;
+  console.log("I'm connection err:", err);
+  console.log(`DB connected as user_id: ${connection.threadId}`);
+});
 
-module.exports = connection
+module.exports = connection;
