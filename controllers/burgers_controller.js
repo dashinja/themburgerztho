@@ -28,5 +28,7 @@ router.post('/api/burger', (req, res) => {
   });
 });
 
-// router.put('/api/burger/:id', (req, res));
+// router.put('/api/burger/:id', (req, res) => {
+//   burger.update();
+// });
 module.exports = router;
