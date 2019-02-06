@@ -14,13 +14,13 @@ const burger = {
   insert: function(col, val, cb) {
     orm.insert('burgers', col, val, (err, result) => {
       if (err) throw err;
-      cb(result);
+      cb(err, result);
     });
   },
   update: function(col, val, cb) {
     orm.update('burgers', col, val, (err, result) => {
       if (err) throw err;
-      cb(result);
+      cb(err, result);
     });
   }
 };

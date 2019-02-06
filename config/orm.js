@@ -51,7 +51,7 @@ const orm = {
     let options = [table, col.toString(), val];
     let query = connection.query(myQuery, options, (err, result) => {
       if (err) throw err;
-      cb(result);
+      cb(err, result);
     });
     console.log(query.sql);
   },
@@ -60,7 +60,7 @@ const orm = {
     let options = [table, col.toString(), conditionEquals];
     connection.query(myQuery, options, (err, result) => {
       if (err) throw err;
-      cb(result);
+      cb(err, result);
     });
   }
 };
