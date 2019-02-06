@@ -1,0 +1,18 @@
+<h3>Delicacies Remaining</h3>
+<ul>
+  {{#each Burger}}
+  {{#unless devoured}}
+  {{>burgers/burger-block devoured=false}}
+  {{/unless}}
+  {{/each}}
+</ul>
+
+<h3>Delicacies to be Ravaged No More...</h3>
+
+<ul>
+  {{#each}}
+  {{#if devoured}}
+  {{>burgers/burger-block devoured=true}}
+  {{/if}}
+  {{/each}}
+</ul>
