@@ -11,15 +11,15 @@ const burger = {
       cb(err, result);
     });
   },
-  insert: function( val, val2, cb) {
+  insert: function(val, val2, cb) {
     orm.insert('burgers', val, val2, (err, result) => {
       // if (err) throw err;
       // console.log("I'm model.insert err :", err);
       cb(err, result);
     });
   },
-  update: function(col, val, cb) {
-    orm.update('burgers', col, val, (err, result) => {
+  update: function(id, cb) {
+    orm.update('burgers', id, (err, result) => {
       if (err) throw err;
       cb(err, result);
     });

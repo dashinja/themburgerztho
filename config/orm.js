@@ -49,24 +49,27 @@ const orm = {
   insert: (table, val, val2, cb) => {
     // let myQuery = 'INSERT INTO ?? SET (??) VALUES (?)';
     // let myQuery = 'INSERT INTO ?? SET (??,??) VALUES (?,?)';
-    let newQuery = 'INSERT INTO ' + table + ' SET ?'
+    let newQuery = 'INSERT INTO ' + table + ' SET ?';
     // let options = [table, col.toString(), val.toString()];
-    let newOptions = {burger_name: val.toString(), devoured: val2.toString()}
+    let newOptions = { burger_name: val.toString(), devoured: val2.toString() };
     let query = connection.query(newQuery, newOptions, (err, result) => {
       // if (err) throw err;
       // console.log("I'm the orm.insert err: ", err);
       cb(err, result);
     });
     // query();
-    console.log(query.sql);
+    // console.log(query.sql);
   },
-  update: (table, col, conditionEquals, cb) => {
-    let myQuery = 'UPDATE ?? SET ?? WHERE ?';
-    let options = [table, col.toString(), conditionEquals];
-    connection.query(myQuery, options, (err, result) => {
+  update: (table, id, cb) => {
+    // let myQuery = 'UPDATE ?? (??, ??) SET ?? WHERE ?';
+    let myQuery = 'UPDATE ' + table + ' SET ? WHERE ?';
+    // let options = [table, col1, col2, conditionEquals];
+    let options = [{ devoured: true }, { id: id }];
+    let query = connection.query(myQuery, options, (err, result) => {
       if (err) throw err;
       cb(err, result);
     });
+    // console.log("I'm orm UPDATE query: ", query.sql);
   }
 };
 // const orm = {
