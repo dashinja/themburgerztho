@@ -2,7 +2,7 @@
 
 ## Cuz you can't not eat burgerz, right?
 
-Follow the ketchup trail allll the way over to [The Burger Joint](https://immense-sea-80454.herokuapp.com/) and see the wonderful selection of succulent delicacies.
+Follow the ketchup trail allll the way over to [The Burger Joint](https://themburgerz.herokuapp.com/) and see the wonderful selection of succulent delicacies.
 
 Delight yourself in the available burgers and salivate doggedly without hope for those already eaten, the joys of yore!
 
@@ -12,5 +12,3 @@ or eat it yourself, and make the rest of us suffer with thoughts of "if it only 
 What a way to live eh? :-)
 Them Burgerz tho...
 
-
-This app was brought to you by DaShinja
