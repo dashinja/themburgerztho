@@ -24,7 +24,8 @@ router.post('/api/burger', (req, res) => {
     console.log(err);
     // console.log("I'm POST req.body:", req.body);
     // console.log("I'm POST, result: ", result);
-    res.render('api', result);
+    // res.render('index', result);
+    res.redirect('/');
     // res.json({ id: result.insertId });
     // res.redirect('/');
   });
