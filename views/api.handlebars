@@ -1,5 +1,12 @@
-{id: {{this.insertId}} }
+<ul>
+  {{#each burger}}
+    <li>
+      {id: {{id}} }
+    </li>
+  {{/each}}
+</ul>
 
 <script>
+  console.log("I'm insertId:" {{ insertId }})
   location.replace("/#home")
 </script>

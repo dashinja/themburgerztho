@@ -44,7 +44,7 @@ const orm = {
       }
       cb(err, result);
     });
-    console.log("I'm Select ALL query:", query.sql);
+    // console.log("I'm Select ALL query:", query.sql);
   },
   insert: (table, val, val2, cb) => {
     // let myQuery = 'INSERT INTO ?? SET (??) VALUES (?)';
@@ -54,14 +54,14 @@ const orm = {
     let newOptions = {burger_name: val.toString(), devoured: val2.toString()}
     let query = connection.query(newQuery, newOptions, (err, result) => {
       // if (err) throw err;
-      console.log("I'm the orm.insert err: ", err);
+      // console.log("I'm the orm.insert err: ", err);
       cb(err, result);
     });
     // query();
     console.log(query.sql);
   },
   update: (table, col, conditionEquals, cb) => {
-    let myQuery = 'UPDATE ? SET ? WHERE ?';
+    let myQuery = 'UPDATE ?? SET ?? WHERE ?';
     let options = [table, col.toString(), conditionEquals];
     connection.query(myQuery, options, (err, result) => {
       if (err) throw err;

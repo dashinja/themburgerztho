@@ -14,7 +14,7 @@ const burger = {
   insert: function( val, val2, cb) {
     orm.insert('burgers', val, val2, (err, result) => {
       // if (err) throw err;
-      console.log("I'm model.insert err :", err);
+      // console.log("I'm model.insert err :", err);
       cb(err, result);
     });
   },
