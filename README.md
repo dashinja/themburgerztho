@@ -12,5 +12,3 @@ or eat it yourself, and make the rest of us suffer with thoughts of "if it only 
 What a way to live eh? :-)
 Them Burgerz tho...
 
-
-This app was brought to you by DaShinja
