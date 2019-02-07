@@ -8,40 +8,92 @@
   <h6>mmm... cat buuuurrrggeerr</h6>
 </header>
 
-<main class="container">
-  <div class="row">
-    <div class="col-8">
-      <h3 class="display-4 text-center">The Delicacies Remaining...</h3>
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class=""> </div>
-          {{#each burger}}
-            <ul class="col-5 pr-0">
-              {{#unless devoured}}
-                {{> burgers/burger-block devoured=false}}
-              {{/unless}}
-            </ul>
-          {{/each}}
+<div class="main-container">
 
+  <main class="container">
+    <div class="row">
+      <div class="col-8">
+        <h3 class="display-4 text-center">The Delicacies Remaining...</h3>
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <!--Form-->
+            <div>
+              <div class="container">
+                <div class="row">
+                  <div class="offset-0">
+                  </div>
+
+                  <div class="col-6 px-0 text-center">
+                    <h2>Add a Delicacy</h2>
+                    <form action="/api/burger" method="POST" class="create-form">
+                      <div class="form-group">
+                        <label for="burger">Burger Name: </label>
+                        <input type="text" id="burger" name="burgerName"
+                          autofocus>
+                      </div>
+                  </div>
+
+                  <div class="form-group col-6 px-0 text-center">
+                    <label for="devoured">Devoured?</label><br>
+
+                    <input type="radio" name="devouredState" value="0" checked>Scrumptiously
+                    Available<br>
+
+                    <input type="radio" name="devouredState" value="1">Tantalizingly
+                    Unavailable<br>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-6 text-center">
+
+                    <button type="submit" href="#home" class="">Add
+                      Burger</button>
+                    <span id="home"></span>
+                  </div>
+                  <div class="col-6"></div>
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+            <!--Burger Creation Place-->
+            <ul class="col-5 pr-0">
+              {{#each burger}}
+                {{#unless devoured}}
+                  {{> burgers/burger-block devoured=false}}
+                {{/unless}}
+              {{/each}}
+            </ul>
+          </div>
         </div>
       </div>
+
+      <div class="col-4">
+        <h3 class="display-4 text-center">Delicacies Lost</h3>
+        <div class="container">
+          {{!-- <div class="row"> --}}
+          <ul class="row">
+            {{#each burger}}
+              {{#if devoured}}
+
+                {{> burgers/burger-done-block devoured=true}}
+              {{/if}}
+            {{/each}}
+          </ul>
+
+          {{!-- </div> --}}
+        </div>
+      </div>
+
     </div>
+  </main>
+</div>
 
-    <div class="col-4">
-      <h3 class="display-4 text-center">Delicacies Lost</h3>
-      <ul>
-        {{#each burger}}
-          {{#if devoured}}
-            {{> burgers/burger-done-block devoured=true}}
-          {{/if}}
-        {{/each}}
-      </ul>
-    </div>
 
-  </div>
-</main>
 
-<div>
+<!--Old form place-->
+{{!-- <div>
   <div class="container">
     <div class="row">
       <div class="offset-1">
@@ -76,4 +128,4 @@
     </div>
   </div>
 
-</div>
+</div> --}}
