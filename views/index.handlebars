@@ -1,4 +1,4 @@
-<header class="jumbotron text-center">
+<header class="jumbotron text-center pb-1 pt-2">
 
   <h1 class="display-1">Here's the Burgers</h1>
   <h2 class="display-3">Eat d'Burgers</h2>
@@ -28,12 +28,12 @@
                     <form action="/api/burger" method="POST" class="create-form">
                       <div class="form-group">
                         <label for="burger">Burger Name: </label>
-                        <input type="text" id="burger" name="burgerName"
+                        <input type="text" id="burger" name="burgerName" class="bg-dark text-primary"
                           autofocus>
                       </div>
                   </div>
 
-                  <div class="form-group col-6 px-0 text-center">
+                  <div class="form-group col-6 px-0 text-center align-self-center">
                     <label for="devoured">Devoured?</label><br>
 
                     <input type="radio" name="devouredState" value="0" checked>Scrumptiously
@@ -46,7 +46,7 @@
                 <div class="row ">
                   <div class="col-6 text-center">
 
-                    <button type="submit" href="#home" class="">Add
+                    <button type="submit" href="#home" class="btn-success text-dark">Add
                       Burger</button>
                     <span id="home"></span>
                   </div>
@@ -58,12 +58,17 @@
 
             </div>
             <!--Burger Creation Place-->
-            <ul class="col-5 pr-0">
-              {{#each burger}}
-                {{#unless devoured}}
-                  {{> burgers/burger-block devoured=false}}
-                {{/unless}}
-              {{/each}}
+            <ul class="col-10 pr-0 mt-4 alert rounded">
+              <div class="container">
+                <div class="row bg-dark rounded py-2 justify-space-between"
+                  style="min-height: 100px;">
+                  {{#each burger}}
+                    {{#unless devoured}}
+                      {{> burgers/burger-block devoured=false}}
+                    {{/unless}}
+                  {{/each}}
+                </div>
+              </div>
             </ul>
           </div>
         </div>
@@ -71,16 +76,15 @@
 
       <div class="col-4">
         <h3 class="display-4 text-center">Delicacies Lost</h3>
-        <div class="container">
+        <div class="container p-0">
           {{!-- <div class="row"> --}}
-          <ul class="row">
-            {{#each burger}}
-              {{#if devoured}}
-
-                {{> burgers/burger-done-block devoured=true}}
-              {{/if}}
-            {{/each}}
-          </ul>
+            <ul class="row p-0">
+              {{#each burger}}
+                {{#if devoured}}
+                  {{> burgers/burger-done-block devoured=true}}
+                {{/if}}
+              {{/each}}
+            </ul>
 
           {{!-- </div> --}}
         </div>
