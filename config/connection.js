@@ -11,12 +11,10 @@ if (process.env.JAWSDB_URL) {
     user: process.env.SQL_USER,
     password: process.env.SQL_PW,
     database: 'burgers_db'
-    // stringifyObjects: true
   });
 }
 
 connection.connect(err => {
-  // if (err) throw err;
   console.log(`DB connected as user_id: ${connection.threadId}`);
 });
 
